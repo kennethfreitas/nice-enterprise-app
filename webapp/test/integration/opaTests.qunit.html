@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Integration tests for Nice App</title>
+
+    <script
+      id="sap-ui-bootstrap"
+      src="https://sapui5.hana.ondemand.com/1.96.10/resources/sap-ui-core.js"
+      data-sap-ui-theme="sap_horizon"
+      data-sap-ui-resourceroots='{
+				"my.nice.app": "../../"
+			}'
+      data-sap-ui-animation="false"
+      data-sap-ui-compatVersion="edge"
+      data-sap-ui-async="true"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://sapui5.hana.ondemand.com/1.96.10/resources/sap/ui/thirdparty/qunit-2.css"
+    />
+
+    <script>
+      sap.ui.getCore().attachInit(function () {
+        jQuery.sap.require("sap.ui.core.util.MockServer");
+        var oMockServer = new sap.ui.core.util.MockServer({
+          rootUri: "http://localhost:3000/odata/",
+        });
+
+        oMockServer.simulate("../../localService/metadata.xml", {
+          sMockdataBaseUrl: "mockdata",
+          bGenerateMissingMockData: true,
+        });
+
+        oMockServer.start();
+      });
+    </script>
+
+    <script src="https://sapui5.hana.ondemand.com/1.96.10/resources/sap/ui/thirdparty/qunit-2.js"></script>
+    <script src="https://sapui5.hana.ondemand.com/1.96.10/resources/sap/ui/qunit/qunit-junit.js"></script>
+
+    <script src="opaTests.qunit.js"></script>
+  </head>
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+  </body>
+</html>

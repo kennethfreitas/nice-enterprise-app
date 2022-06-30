@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nice App - Mocked</title>
+
+    <script
+      id="sap-ui-bootstrap"
+      src="https://sapui5.hana.ondemand.com/1.96.10/resources/sap-ui-core.js"
+      data-sap-ui-theme="sap_horizon"
+      data-sap-ui-libs="sap.m"
+      data-sap-ui-resourceroots='{
+				"my.nice.app": "./"
+			}'
+      data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+      data-sap-ui-compatVersion="edge"
+      data-sap-ui-async="true"
+      data-sap-ui-frameOptions="trusted"
+    ></script>
+    <script>
+      sap.ui.getCore().attachInit(function () {
+        jQuery.sap.require("sap.ui.core.util.MockServer");
+        var oMockServer = new sap.ui.core.util.MockServer({
+          rootUri: "http://localhost:3000/odata/",
+        });
+
+        oMockServer.simulate("./localService/metadata.xml", {
+          sMockdataBaseUrl: "mockdata",
+          bGenerateMissingMockData: true,
+        });
+
+        oMockServer.start();
+      });
+    </script>
+  </head>
+
+  <body class="sapUiBody">
+    <div
+      data-sap-ui-component
+      data-name="my.nice.app"
+      data-id="container"
+      data-settings='{"id" : "niceApp"}'
+    ></div>
+  </body>
+</html>

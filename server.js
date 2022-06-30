@@ -37,16 +37,17 @@ function paginateClients(search = "", page, perPage) {
   );
   const currentPage = page > 0 ? +page : 1;
   const itemsPerPage = +perPage || 10;
+  const items = clients.slice(
+    itemsPerPage * (currentPage - 1),
+    itemsPerPage * currentPage
+  );
 
   return {
     page: currentPage,
     totalPages: Math.round(clients.length / itemsPerPage),
     perPage: itemsPerPage,
     results: items.length,
-    items: clients.slice(
-      itemsPerPage * (currentPage - 1),
-      itemsPerPage * currentPage
-    ),
+    items,
   };
 }
 
@@ -68,10 +69,10 @@ app
     const index = findClientIndex(req.params.id);
     res.json(CLIENTS[index]);
   })
-  .put((req, res) => {
+  .patch((req, res) => {
     const { id } = req.params;
     const index = findClientIndex(id);
-    CLIENTS[index] = { ...req.body, id };
+    CLIENTS[index] = { ...CLIENTS[index], ...req.body, id };
     res.status(204).json({});
   })
   .delete((req, res) => {

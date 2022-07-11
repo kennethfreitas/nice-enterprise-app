@@ -10,6 +10,7 @@
 ---
 
 - [Basic Template](https://github.com/SAP/openui5-basic-template-app/)
+- [Sample App](https://github.com/SAP/openui5-sample-app)
 - [Express Ui5](https://www.npmjs.com/package/expressui5)
 - [Generator Easy UI5](https://github.com/SAP/generator-easy-ui5)
 

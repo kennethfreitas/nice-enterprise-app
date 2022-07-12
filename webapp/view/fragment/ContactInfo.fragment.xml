@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Label text="{i18n>contactInfo.label}" design="Bold" class="sapUiSmallMarginTop" />
+    <ObjectAttribute binding="{contactInfo>/}" text="{contactInfo>Name} - {contactInfo>Email}" />
+    <ObjectAttribute binding="{contactInfo>/}" text="{
+                                    path: 'contactInfo>Phone',
+                                    formatter : '.formatter.phoneFormat'
+                                }" />
+    <ObjectAttribute binding="{contactInfo>/}" text="{
+                                    parts: [
+                                        { path: 'contactInfo>City' },
+                                        { path: 'contactInfo>State' }
+                                    ],
+                                    formatter : '.formatter.locationFormat'
+                                }" />
+</core:FragmentDefinition>

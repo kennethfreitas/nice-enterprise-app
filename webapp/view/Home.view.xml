@@ -1,5 +1,39 @@
-<mvc:View controllerName="my.nice.app.controller.Home" displayBlock="true" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+<mvc:View controllerName="my.nice.app.controller.Home" displayBlock="true" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
 	<Page id="page" title="{i18n>title}">
-		<content></content>
+		<Table id="idProductsTable" items="{
+				path: '/Products',
+				parameters: {
+					expand: 'Supplier'
+				},
+				sorter: {
+					path: 'Name'
+				}
+			}">
+			<columns>
+				<Column>
+					<Text text="{i18n>table.product}" />
+				</Column>
+				<Column>
+					<Text text="{i18n>table.price}" />
+				</Column>
+				<Column>
+					<Text text="{i18n>table.supplier}" />
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem vAlign="Middle">
+					<cells>
+						<ObjectIdentifier title="{Name}" text="{ProductId}" />
+						<ObjectNumber number="{
+								parts:[{path:'Price'},{path:'CurrencyCode'}],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {showMeasure: true}
+							}" unit="BR" />
+						<Text text="{Supplier/Name}" />
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<core:Fragment fragmentName="my.nice.app.view.fragment.ContactInfo" type="XML" />
 	</Page>
 </mvc:View>

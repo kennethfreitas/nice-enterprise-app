@@ -10,7 +10,16 @@
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
     "resources": "resources.json",
-    "ach": "ach"
+    "ach": "ach",
+    "dataSources": {
+      "Products": {
+        "uri": "http://localhost:3000/odata/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      }
+    }
   },
 
   "sap.ui": {
@@ -45,8 +54,17 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "my.nice.app.i18n.i18n"
+          "bundleName": "my.nice.app.i18n.i18n",
+          "supportedLocales": ["en_US", "pt_BR"],
+          "fallbackLocale": "en_US"
         }
+      },
+      "contactInfo": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/ContactInfo.json"
+      },
+      "": {
+        "dataSource": "Products"
       }
     },
     "resources": {
@@ -63,7 +81,10 @@
         "viewPath": "my.nice.app.view",
         "controlId": "app",
         "controlAggregation": "pages",
-        "async": true
+        "async": true,
+        "bypassed": {
+          "target": "notFound"
+        }
       },
       "routes": [
         {
@@ -77,6 +98,9 @@
           "viewName": "Home",
           "viewId": "home",
           "viewLevel": 1
+        },
+        "notFound": {
+          "viewName": "NotFound"
         }
       }
     }

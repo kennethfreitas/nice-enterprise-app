@@ -32,6 +32,7 @@
   },
 
   "sap.ui5": {
+    "handleValidation": true,
     "rootView": {
       "viewName": "my.nice.app.view.App",
       "type": "XML",
@@ -91,6 +92,11 @@
           "pattern": "",
           "name": "home",
           "target": ["home"]
+        },
+        {
+          "pattern": "register",
+          "name": "register",
+          "target": ["register"]
         }
       ],
       "targets": {
@@ -98,6 +104,11 @@
           "viewName": "Home",
           "viewId": "home",
           "viewLevel": 1
+        },
+        "register": {
+          "viewName": "Register",
+          "viewId": "register",
+          "viewLevel": 2
         },
         "notFound": {
           "viewName": "NotFound"

@@ -1,6 +1,6 @@
 <mvc:View controllerName="my.nice.app.controller.Home" displayBlock="true" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
 	<Page id="page" title="{i18n>title}">
-		<Table id="idProductsTable" items="{
+		<Table id="productsTable" items="{
 				path: '/Products',
 				parameters: {
 					expand: 'Supplier'
@@ -8,7 +8,13 @@
 				sorter: {
 					path: 'Name'
 				}
-			}">
+			}" growing="true" growingThreshold="5" growingScrollToLoad="false">
+			<headerToolbar>
+				<Toolbar>
+					<ToolbarSpacer />
+					<SearchField width="50%" search="onFilterProducts" />
+				</Toolbar>
+			</headerToolbar>
 			<columns>
 				<Column>
 					<Text text="{i18n>table.product}" />

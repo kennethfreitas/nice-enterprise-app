@@ -1,0 +1,27 @@
+<mvc:View displayBlock="true" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="my.nice.app.controller.Register" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+    <Page id="registerPage" title="{i18n>productForm.title}">
+        <f:SimpleForm id="form" editable="true" layout="ResponsiveGridLayout">
+            <f:content>
+                <Label text="{i18n>productForm.name}" />
+                <Input id="nameInput" required="true" value="{ path: 'newProduct>/name', type: 'sap.ui.model.type.String', constraints: { minLength: 3 } }" />
+                <Label text="{i18n>productForm.price}" />
+                <Input id="priceInput" required="true" value="{ path: 'newProduct>/price', type: 'sap.ui.model.type.Integer', constraints: { minimum: 1 } }" />
+                <Label text="{i18n>productForm.client}" />
+                <ComboBox items="{
+					path: 'clients>/',
+                    sorter: { path: 'name' }
+				}">
+                    <core:Item key="{clients>id}" text="{clients>name}" />
+                </ComboBox>
+                <Label text="{i18n>productForm.supplier}" />
+                <Input id="supllierInput" required="true" showValueHelp="true" valueHelpOnly="true" valueHelpRequest=".onValueHelpRequested" suggestionItems="{
+							path: '/Suppliers',
+							sorter: { path: 'Name' }
+						}">
+                    <core:Item key="{ID}" text="{Name}" />
+                </Input>
+                <Button id="save" text="{i18n>productForm.saveButton}" type="Emphasized" press="handleSavePress" enabled="{= !${errorMessages>/}.length }" />
+            </f:content>
+        </f:SimpleForm>
+    </Page>
+</mvc:View>

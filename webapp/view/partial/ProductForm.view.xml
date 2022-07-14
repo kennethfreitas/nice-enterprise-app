@@ -1,0 +1,25 @@
+<mvc:View controllerName="my.nice.app.controller.partial.ProductForm" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+    <f:SimpleForm id="form" editable="true" layout="ResponsiveGridLayout">
+        <f:content>
+            <Label text="{i18n>productForm.name}" />
+            <Input id="nameInput" required="true" value="{ path: 'basicProduct>/name', type: 'sap.ui.model.type.String', constraints: { minLength: 3 } }" enabled="{basicProduct>/editable}" />
+            <Label text="{i18n>productForm.price}" />
+            <Input id="priceInput" required="true" value="{ path: 'basicProduct>/price', type: 'sap.ui.model.type.Integer', constraints: { minimum: 1 } }" enabled="{basicProduct>/editable}" />
+            <Label text="{i18n>productForm.client}" />
+            <ComboBox items="{
+					path: 'clients>/',
+                    sorter: { path: 'name' }
+				}" enabled="{basicProduct>/editable}" selectionChange="onSelectClient" selectedKey="{basicProduct>/description}">
+                <core:Item key="{clients>name}" text="{clients>name}" />
+            </ComboBox>
+            <Label text="{i18n>productForm.supplier}" />
+            <Input id="supllierInput" required="true" showValueHelp="true" valueHelpOnly="true" valueHelpRequest=".onValueHelpRequested" suggestionItems="{
+							path: '/Suppliers',
+							sorter: { path: 'Name' }
+						}" enabled="{basicProduct>/editable}" value="{basicProduct>/supplierName}">
+                <core:Item key="{ID}" text="{Name}" />
+            </Input>
+            <Button id="save" text="{i18n>productForm.saveButton}" type="Emphasized" press="handleSavePress" enabled="{= !${errorMessages>/}.length &amp;&amp; !!${basicProduct>/name} &amp;&amp; !!${basicProduct>/supplierName} }" visible="{basicProduct>/editable}" />
+        </f:content>
+    </f:SimpleForm>
+</mvc:View>

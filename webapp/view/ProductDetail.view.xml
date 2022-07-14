@@ -1,0 +1,11 @@
+<mvc:View controllerName="my.nice.app.controller.ProductDetail" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+    <Page title="{i18n>detail.title}" showNavButton="true" navButtonPress=".onNavBack">
+        <OverflowToolbar>
+            <Title text="{basicProduct>/name}" level="H2" />
+            <ToolbarSpacer />
+            <Button icon="sap-icon://delete" press="deleteProduct(${basicProduct>/id})" visible="{basicProduct>/editable}" />
+            <Button icon="sap-icon://request" press="editProduct" />
+        </OverflowToolbar>
+        <mvc:XMLView viewName="my.nice.app.view.partial.ProductForm" />
+    </Page>
+</mvc:View>

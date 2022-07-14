@@ -11,6 +11,7 @@
 			}" growing="true" growingThreshold="5" growingScrollToLoad="false">
 			<headerToolbar>
 				<Toolbar>
+					<Button icon="sap-icon://add-document" press="addProduct" />
 					<ToolbarSpacer />
 					<SearchField width="50%" search="onFilterProducts" />
 				</Toolbar>
@@ -27,9 +28,9 @@
 				</Column>
 			</columns>
 			<items>
-				<ColumnListItem vAlign="Middle">
+				<ColumnListItem vAlign="Middle" type="Active" press="openProduct(${ID})">
 					<cells>
-						<ObjectIdentifier title="{Name}" text="{ProductId}" />
+						<ObjectIdentifier title="{Name}" text="{Description}" />
 						<ObjectNumber number="{
 								parts:[{path:'Price'},{path:'CurrencyCode'}],
 								type: 'sap.ui.model.type.Currency',

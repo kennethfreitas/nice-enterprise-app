@@ -1,6 +1,11 @@
 sap.ui.define(
-  ["sap/ui/core/UIComponent", "sap/ui/Device", "./model/models"],
-  function (UIComponent, Device, models) {
+  [
+    "sap/ui/core/UIComponent",
+    "sap/ui/Device",
+    "./model/models",
+    "./controller/partial/Dialog",
+  ],
+  function (UIComponent, Device, models, Dialog) {
     "use strict";
 
     return UIComponent.extend("my.nice.app.Component", {
@@ -24,6 +29,13 @@ sap.ui.define(
 
         // create the views based on the url/hash
         this.getRouter().initialize();
+
+        // set dialog
+        this._dialog = new Dialog();
+      },
+
+      openDialog(title, callback) {
+        this._dialog.open(title, callback);
       },
     });
   }

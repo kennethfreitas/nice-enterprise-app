@@ -24,3 +24,13 @@ Só rodar `npm ci` e `npm start` para inicializar o servidor.
 
 #### Rest Service
 - http://localhost:3000/api/clients
+
+---
+
+#### Links interessantes para dar um help
+- [Routing with Parameters in SAPUI5 application](https://blogs.sap.com/2021/04/14/routing-with-parameters-in-sapui5-application/)
+- [SAPUI5 Controller Lifecycle Methods Explained!](https://blogs.sap.com/2018/11/12/sapui5-controller-lifecycle-methods-explained/)
+
+#### Testes!
+- [Sinonjs](https://sinonjs.org/releases/v1/)
+- [QUnit](https://api.qunitjs.com/)

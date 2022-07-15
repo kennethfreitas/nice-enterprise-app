@@ -1,5 +1,5 @@
 <mvc:View controllerName="my.nice.app.controller.Home" displayBlock="true" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
-	<Page id="page" title="{i18n>title}">
+	<Page id="homePage" title="{i18n>title}">
 		<Table id="productsTable" items="{
 				path: '/Products',
 				parameters: {

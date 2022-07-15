@@ -3,9 +3,8 @@ sap.ui.define(
     "my/nice/app/controller/Base.controller",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
-    "../model/formatter",
   ],
-  function (BaseController, Filter, FilterOperator, formatter) {
+  function (BaseController, Filter, FilterOperator) {
     "use strict";
 
     return BaseController.extend("my.nice.app.controller.Home", {

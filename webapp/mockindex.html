@@ -18,21 +18,7 @@
       data-sap-ui-async="true"
       data-sap-ui-frameOptions="trusted"
     ></script>
-    <script>
-      sap.ui.getCore().attachInit(function () {
-        jQuery.sap.require("sap.ui.core.util.MockServer");
-        var oMockServer = new sap.ui.core.util.MockServer({
-          rootUri: "http://localhost:3000/odata/",
-        });
-
-        oMockServer.simulate("./localService/metadata.xml", {
-          sMockdataBaseUrl: "mockdata",
-          bGenerateMissingMockData: true,
-        });
-
-        oMockServer.start();
-      });
-    </script>
+    <script src="./localService/mockserver.js"></script>
   </head>
 
   <body class="sapUiBody">

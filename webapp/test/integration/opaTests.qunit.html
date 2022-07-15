@@ -22,21 +22,7 @@
       href="https://sapui5.hana.ondemand.com/1.96.10/resources/sap/ui/thirdparty/qunit-2.css"
     />
 
-    <script>
-      sap.ui.getCore().attachInit(function () {
-        jQuery.sap.require("sap.ui.core.util.MockServer");
-        var oMockServer = new sap.ui.core.util.MockServer({
-          rootUri: "http://localhost:3000/odata/",
-        });
-
-        oMockServer.simulate("../../localService/metadata.xml", {
-          sMockdataBaseUrl: "mockdata",
-          bGenerateMissingMockData: true,
-        });
-
-        oMockServer.start();
-      });
-    </script>
+    <script src="../../localService/mockserver.js"></script>
 
     <script src="https://sapui5.hana.ondemand.com/1.96.10/resources/sap/ui/thirdparty/qunit-2.js"></script>
     <script src="https://sapui5.hana.ondemand.com/1.96.10/resources/sap/ui/qunit/qunit-junit.js"></script>

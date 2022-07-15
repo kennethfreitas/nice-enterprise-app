@@ -1,6 +1,6 @@
 /*global QUnit*/
 
-sap.ui.define(["sap/ui/test/opaQunit", "./pages/App"], function (opaTest) {
+sap.ui.define(["sap/ui/test/opaQunit", "../pages/App"], function (opaTest) {
   "use strict";
 
   QUnit.module("Navigation Journey");

@@ -17,7 +17,7 @@ sap.ui.define(
         const randomID = Math.round(Math.random() * 1000000);
 
         const odata = {
-          ID: newProduct.id ? `${newProduct.id}` : `${randomID}`,
+          ID: newProduct.id === null ? `${randomID}` : `${newProduct.id}`,
           Name: newProduct.name,
           Description: newProduct.description,
           Price: Number(newProduct.price).toFixed(2),
@@ -43,9 +43,7 @@ sap.ui.define(
             odata,
             properties
           );
-        } else {
-          this.getModel().create("/Products", odata, properties);
-        }
+        } else this.getModel().create("/Products", odata, properties);
 
         this.resetBasicProductModel();
         this.navTo("home");

@@ -32,9 +32,8 @@ sap.ui.define(
       },
 
       deleteProduct(productId) {
-        this.openDialog(`Delete product ${productId}?`, () =>
-          this._deleteProduct(productId)
-        );
+        const text = this.getI18nText("detail.deleteDialog", productId)
+        this.openDialog(text, () => this._deleteProduct(productId));
       },
 
       _deleteProduct(productId) {

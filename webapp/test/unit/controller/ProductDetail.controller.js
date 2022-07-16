@@ -61,10 +61,12 @@ sap.ui.define(
       "Should open a dialog to confirm product exclusion",
       function (assert) {
         sinon.stub(this.productDetail, "openDialog").returns(null);
+        sinon.stub(this.productDetail, "getI18nText").returns("txt");
         this.productDetail.deleteProduct(99);
 
         assert.ok(this.productDetail.openDialog.calledOnce);
         this.productDetail.openDialog.restore();
+        this.productDetail.getI18nText.restore();
       }
     );
 

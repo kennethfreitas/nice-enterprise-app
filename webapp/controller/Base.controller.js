@@ -35,8 +35,8 @@ sap.ui.define(
         else model.setData({ ...data, ...changes });
       },
 
-      getI18nText(key) {
-        return this.getView().getModel("i18n").getResourceBundle().getText(key);
+      getI18nText(key, ...params) {
+        return this.getView().getModel("i18n").getResourceBundle().getText(key, params);
       },
 
       navTo(path, params) {
@@ -53,7 +53,7 @@ sap.ui.define(
 
       resetBasicProductModel() {
         this.updateModel("basicProduct", {
-          id: "",
+          id: null,
           name: "",
           price: 0,
           description: "",

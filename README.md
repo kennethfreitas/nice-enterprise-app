@@ -17,6 +17,10 @@
 ## - Backend
 Só rodar `npm ci` e `npm start` para inicializar o servidor.
 
+## - Front-end
+Para rodar o front-end só basta abrir manualmente o index.html que está na raiz da pasta webapp. Caso tenha a extensão "Live Server" instalada no seu VSCode
+só basta abrir o arquivo index.html em modo de edição, e por fim clicar lá no "Go Live" (que fica no canto inferior direito da barra de status do VSCode).
+
 ---
 
 #### OData Service

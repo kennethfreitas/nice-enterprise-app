@@ -6,6 +6,7 @@ sap.ui.define(
     "sap/m/Token",
     "sap/ui/core/Fragment",
     "my/nice/app/util/ClientInfo",
+    "my/nice/app/model/modelNames"
   ],
   function (
     BaseController,
@@ -13,13 +14,14 @@ sap.ui.define(
     Label,
     Token,
     Fragment,
-    ClientInfo
+    ClientInfo,
+    ModelNames
   ) {
     "use strict";
 
     const TABLE_COLS_MODEL = "tableCols";
     const CLIENTS_MODEL = "clients";
-    const PRODUCT_MODEL = "basicProduct";
+    const PRODUCT_MODEL = ModelNames.BASIC_PRODUCT_MODEL;
 
     return BaseController.extend("my.nice.app.controller.ClientsTableHelp", {
       constructor: function (oController) {

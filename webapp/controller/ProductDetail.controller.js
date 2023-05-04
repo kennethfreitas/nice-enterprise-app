@@ -1,9 +1,9 @@
 sap.ui.define(
-  ["my/nice/app/controller/Base.controller"],
-  function (BaseController) {
+  ["my/nice/app/controller/Base.controller", "my/nice/app/model/modelNames"],
+  function (BaseController, ModelNames) {
     "use strict";
 
-    const PRODUCT_MODEL = "basicProduct";
+    const PRODUCT_MODEL = ModelNames.BASIC_PRODUCT_MODEL;
 
     return BaseController.extend("my.nice.app.controller.ProductDetail", {
       onInit() {
